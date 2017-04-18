@@ -61,12 +61,171 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.gulp-jasmine">module gulp-jasmine</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-jasmine.gulp-jasmine">
+            function <span class="apidocSignatureSpan"></span>gulp-jasmine
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-jasmine.toString">
+            function <span class="apidocSignatureSpan">gulp-jasmine.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-jasmine.toString">module gulp-jasmine.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-jasmine.toString.toString">
+            function <span class="apidocSignatureSpan">gulp-jasmine.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-jasmine" id="apidoc.module.gulp-jasmine">module gulp-jasmine</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-jasmine.gulp-jasmine" id="apidoc.element.gulp-jasmine.gulp-jasmine">
+        function <span class="apidocSignatureSpan"></span>gulp-jasmine
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-jasmine = function (opts) {
+	opts = opts || {};
+
+	var jasmine = new Jasmine();
+
+	if (opts.timeout) {
+		jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = opts.timeout;
+	}
+
+	if (opts.config) {
+		jasmine.loadConfig(opts.config);
+	}
+
+	var errorOnFail = opts.errorOnFail === undefined ? true : opts.errorOnFail;
+	var color = process.argv.indexOf(&#x27;--no-color&#x27;) === -1;
+	var reporter = opts.reporter;
+
+	// default reporter behavior changed in 2.5.2
+	if (jasmine.env.clearReporters) {
+		jasmine.env.clearReporters();
+	}
+
+	if (reporter) {
+		arrify(reporter).forEach(function (el) {
+			jasmine.addReporter(el);
+		});
+	} else {
+		jasmine.addReporter(new Reporter({
+			isVerbose: opts.verbose,
+			showColors: color,
+			includeStackTrace: opts.includeStackTrace
+		}));
+	}
+
+	return through.obj(function (file, enc, cb) {
+		if (file.isNull()) {
+			cb(null, file);
+			return;
+		}
+
+		if (file.isStream()) {
+			cb(new gutil.PluginError(&#x27;gulp-jasmine&#x27;, &#x27;Streaming not supported&#x27;));
+			return;
+		}
+
+		// get the cache object of the specs.js file,
+		// delete it and its children recursively from cache
+		var resolvedPath = path.resolve(file.path);
+		var modId = require.resolve(resolvedPath);
+		deleteRequireCache(modId);
+
+		jasmine.addSpecFile(resolvedPath);
+
+		cb(null, file);
+	}, function (cb) {
+		var self = this;
+
+		try {
+			if (jasmine.helperFiles) {
+				jasmine.helperFiles.forEach(function (helper) {
+					var resolvedPath = path.resolve(helper);
+					var modId = require.resolve(resolvedPath);
+					deleteRequireCache(modId);
+				});
+			}
+
+			jasmine.onComplete(function (passed) {
+				if (errorOnFail &#x26;&#x26; !passed) {
+					cb(new gutil.PluginError(&#x27;gulp-jasmine&#x27;, &#x27;Tests failed&#x27;, {
+						showStack: false
+					}));
+				} else {
+					self.emit(&#x27;jasmineDone&#x27;, passed);
+					cb();
+				}
+			});
+
+			jasmine.execute();
+		} catch (err) {
+			cb(new gutil.PluginError(&#x27;gulp-jasmine&#x27;, err, {showStack: true}));
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-jasmine.toString" id="apidoc.element.gulp-jasmine.toString">
+        function <span class="apidocSignatureSpan">gulp-jasmine.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-jasmine.toString" id="apidoc.module.gulp-jasmine.toString">module gulp-jasmine.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-jasmine.toString.toString" id="apidoc.element.gulp-jasmine.toString.toString">
+        function <span class="apidocSignatureSpan">gulp-jasmine.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
