@@ -1,9 +1,14 @@
-# api documentation for  [gulp-jasmine (v2.4.2)](https://github.com/sindresorhus/gulp-jasmine#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-jasmine.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-jasmine) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine)
+# npmdoc-gulp-jasmine
+
+#### api documentation for  [gulp-jasmine (v2.4.2)](https://github.com/sindresorhus/gulp-jasmine#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-jasmine.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-jasmine) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine)
+
 #### Run Jasmine tests
 
-[![NPM](https://nodei.co/npm/gulp-jasmine.png?downloads=true)](https://www.npmjs.com/package/gulp-jasmine)
+[![NPM](https://nodei.co/npm/gulp-jasmine.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-jasmine)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-gulp-jasmine_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-gulp-jasmine/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "Sindre Sorhus",
-        "email": "sindresorhus@gmail.com",
         "url": "sindresorhus.com"
     },
     "bugs": {
@@ -67,17 +71,14 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "jbblanchet",
-            "email": "jbblanchet@gmail.com"
+            "name": "jbblanchet"
         },
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         }
     ],
     "name": "gulp-jasmine",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/sindresorhus/gulp-jasmine.git"
@@ -93,16 +94,6 @@
     }
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module gulp-jasmine](#apidoc.module.gulp-jasmine)
-
-
-
-# <a name="apidoc.module.gulp-jasmine"></a>[module gulp-jasmine](#apidoc.module.gulp-jasmine)
 
 
 
