@@ -1,6 +1,6 @@
 # npmdoc-gulp-jasmine
 
-#### api documentation for  [gulp-jasmine (v2.4.2)](https://github.com/sindresorhus/gulp-jasmine#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-jasmine.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-jasmine) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine)
+#### basic api documentation for  [gulp-jasmine (v2.4.2)](https://github.com/sindresorhus/gulp-jasmine#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-jasmine.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-jasmine) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-jasmine)
 
 #### Run Jasmine tests
 
@@ -91,7 +91,8 @@
         "envs": [
             "jasmine"
         ]
-    }
+    },
+    "bin": {}
 }
 ```
 
